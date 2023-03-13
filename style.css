@@ -1,0 +1,29 @@
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:90dvh;
+    width:100%;
+}
+
+#sketchBox {
+    display:flex;
+    flex-direction: column;
+    width:50%;
+}
+
+.row {
+    display:flex;
+}
+.tile {
+    background-color: black;
+    min-width:10px;
+    aspect-ratio: 1;
+    flex:1;
+    flex-basis:1;
+}
+
+.tileHover {
+    background-color:rgb(255, 255, 255);
+    transition:0.1s;
+}
