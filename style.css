@@ -5,18 +5,26 @@ body {
     align-items: center;
     height:90dvh;
     width:100%;
+    font-family: sans-serif;
 }
+
 
 #title {
     font-size:72px;
     font-family: sans-serif;
     text-align: center;
+    margin:0;
 }
 
 #sketchBox {
     display:flex;
     flex-direction: column;
+    background-color: black;
     width:60%;
+    max-width: 550px;
+    border-style: solid;
+    border-width:5px;
+    margin:20px;
 }
 
 .row {
@@ -33,4 +41,21 @@ body {
 .tileHover {
     background-color:rgb(255, 255, 255);
     transition:0.1s;
+}
+
+#buttons {
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    width:60%;
+    max-width: 550px;
+}
+
+button {
+    color:white;
+    background-color: black;
+    width:150px;
+    font-size:20px;
+    padding:10px;
+    margin:10px;
 }
