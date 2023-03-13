@@ -1,15 +1,21 @@
 function init() {
+    // create initial sketch box
+    generateSketchBox(16);
+    // add resize click listener
+    document.querySelector('#resize').addEventListener('click', promptAndResizeOrAlert);
+}
+
+function generateSketchBox(length) {
     const sketchBox = document.querySelector('#sketchBox');
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < length; i++) {
         const row = document.createElement('div');
         row.classList.add('row');
-        for (let j = 0; j < 16; j++) {
+        for (let j = 0; j < length; j++) {
             const tile = createTile();
             row.append(tile);
         }
         sketchBox.append(row);
     }
-    document.querySelector('body').append(sketchBox);
 }
 
 function createTile() {
@@ -18,10 +24,24 @@ function createTile() {
     tile.addEventListener('mouseenter', function(e) {
         this.classList.add('tileHover');
     });
-    // tile.addEventListener('mouseleave', function(e) {
-    //     this.classList.remove('tileHover');
-    // });
     return tile;
 }
 
-init()
+// resize function for button listener
+function promptAndResizeOrAlert() {
+    const size = +prompt('Enter size for sketch board...');
+    if (size < 0 || size > 100) {
+        alert('Enter a size from 1 to 100');
+    }
+    removeAllChildren(document.querySelector('#sketchBox'));
+    generateSketchBox(size);
+}
+
+function removeAllChildren(node) {
+    const children = node.querySelectorAll('*');
+    children.forEach(child => {
+        child.remove();
+    })
+}
+
+init();
